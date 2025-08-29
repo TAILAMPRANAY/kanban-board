@@ -1,0 +1,186 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #0d6efd;
+}
+
+
+.columns {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.column-title h3 {
+  font-size: 1.25rem;
+  color: #333;
+  position: relative;
+}
+
+.column-title h3::after {
+  content: attr(data-tasks);
+  background: #0d6efd;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.column-title button {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.column-title button:hover {
+  background: #0b5ed7;
+}
+
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100px;
+}
+
+.task {
+  background: #fefefe;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #0d6efd;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task:hover {
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task.dragging {
+  opacity: 0.5;
+}
+
+.task menu {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.task button {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.task button:hover {
+  color: #dc3545;
+}
+
+/* === Task Input === */
+.task-input {
+  background: #fffbe6;
+  border: 1px dashed #ffcc00;
+  padding: 0.75rem;
+  border-radius: 6px;
+  outline: none;
+  min-height: 50px;
+}
+
+.task-input:empty::before {
+  content: attr(data-placeholder);
+  color: #aaa;
+}
+
+
+.confirm-modal {
+  padding: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  width: 300px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.confirm-modal h3 {
+  margin-bottom: 0.5rem;
+}
+
+.confirm-modal .preview {
+  margin: 0.75rem 0;
+  background: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.confirm-modal menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.confirm-modal button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-modal #cancel {
+  background: #dee2e6;
+}
+
+.confirm-modal #confirm {
+  background: #dc3545;
+  color: white;
+}
